@@ -911,6 +911,9 @@ public static void main(String args[]){
 	q.remove(deq);
 	Random r = new Random();
 	deq.time=(r.nextInt(ftime-1-time+1+1)+time+1);
+	if(deq.time>=ftime-1){
+		break;
+	}
 	q.add(deq);
 	}
 	}
@@ -1285,6 +1288,9 @@ public static void main(String args[]){
 		q.remove(deq);
 		Random r = new Random();
 		deq.time=(r.nextInt(ftime-1-time+1+1)+time+1);
+		if(deq.time>=ftime-1){
+			break;
+		}
 		q.add(deq);
 		}
 		
