@@ -52,6 +52,12 @@ static class cmp implements Comparator<Animal>{
 	@Override
 	public int compare(Animal a,Animal b){
 		int timea=a.time;int timeb=b.time;
+		if(timea>time){
+			time=timea;
+		}
+		if(timeb>time){
+			time=timeb;
+		}
 		if (a.time!=b.time){
 		if (timea>timeb)
 			return 1;
@@ -160,7 +166,7 @@ public static void main(String args[]){
 	ArrayList<Integer> ccount=new ArrayList<Integer>();
 	hcount.add(1);
 	hcount.add(2);
-	while(q.size()>0 && ftime>(turn)){
+	while(q.size()>0 && ftime>(turn) && time<ftime-1){
 
 	Animal deq1=q.poll();
 	if( deq1.type=="h"){
@@ -901,7 +907,10 @@ public static void main(String args[]){
 		
 	}
 	else{
+		
 	q.remove(deq);
+	Random r = new Random();
+	deq.time=(r.nextInt(ftime-1-time+1+1)+time+1);
 	q.add(deq);
 	}
 	}
@@ -1274,6 +1283,8 @@ public static void main(String args[]){
 		}
 		else{
 		q.remove(deq);
+		Random r = new Random();
+		deq.time=(r.nextInt(ftime-1-time+1+1)+time+1);
 		q.add(deq);
 		}
 		
